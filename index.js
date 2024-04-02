@@ -22,11 +22,11 @@ const messageSendToTelegram = (data, sodu) => {
   const bankName = "ACB";
   const type = data.type === "IN" ? "+" : "-";
   return `Số dư tài khoản vừa ${type} ${amount} VND
-      Số dư tài khoản:${sodu1}
-      Mô tả -> ${description}
-      Mã giao dịch: ${transactionNumber}
-      Số tài khoản: ${account} 
-      Ngân hàng: ${bankName}
+          Số dư hiện tại:${sodu1}
+          Nội dung: ${description}
+          Mã giao dịch: ${transactionNumber}
+          Số tài khoản: ${account} 
+          Ngân hàng: ${bankName}
       `;
 };
 
