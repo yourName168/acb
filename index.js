@@ -145,17 +145,22 @@ const loginToACB = async (username, password) => {
 const fetchTransactions = async (numberAccount, username, password) => {
   try {
     const accessToken = await loginToACB(username, password);
-    const sodu = (await acb.getsodu(accessToken)).data[0].totalBalance;
     const result = await acb.lsgd(numberAccount, 5, accessToken);
-    return [result.data, sodu];
+    return [result.data, accessToken];
   } catch (error) {
     console.log("Failed to retrieve transaction history:", error);
     throw new Error("Failed to retrieve transaction history.");
   }
 };
 
-const sendMessagesToTelegram = async (bot, listChatId, transaction, sodu) => {
+const sendMessagesToTelegram = async (
+  bot,
+  listChatId,
+  transaction,
+  accessToken
+) => {
   try {
+    const sodu = (await acb.getsodu(accessToken)).data[0].totalBalance;
     const message = formatMessage(transaction, sodu);
     const sendMessagePromises = listChatId.map((chatId) => {
       return bot.sendMessage(chatId, message);
@@ -189,7 +194,7 @@ const handleTransactions = async (
 ) => {
   // bot.sendMessage(chatId, "handleTransactions started");
   try {
-    const [transactions, sodu] = await fetchTransactions(
+    const [transactions, accessToken] = await fetchTransactions(
       numberAccount,
       username,
       password
@@ -200,7 +205,7 @@ const handleTransactions = async (
       });
       console.log(result);
       if (!result) {
-        await sendMessagesToTelegram(bot, listChatId, transaction, sodu);
+        await sendMessagesToTelegram(bot, listChatId, transaction, accessToken);
       }
     }
   } catch (error) {
