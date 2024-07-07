@@ -173,7 +173,7 @@ const sendMessagesToTelegram = async (
 
     // Ghi nhận giao dịch đã gửi thành công vào cơ sở dữ liệu
     await databaseService.transactionSent.insertOne({
-      transactionNumber: transaction.transactionNumber,
+      transactionCode: `${transaction.transactionNumber}-${transaction.account}`,
     });
 
     console.log("Message sent successfully");
@@ -201,7 +201,7 @@ const handleTransactions = async (
     );
     for (const transaction of transactions) {
       const result = await databaseService.transactionSent.findOne({
-        transactionNumber: transaction.transactionNumber,
+        transactionCode: `${transaction.transactionNumber}-${transaction.account}`
       });
       console.log(result);
       if (!result) {
@@ -256,6 +256,20 @@ app.listen(port, async () => {
       ["6449260356", "-4189985331"],
       "bin7979",
       "Lam@3979#"
+    ),
+    startBot(
+      "40887567",
+      "7484166601:AAHIRMO6YPYSRUMvfOtRk4Kmg_IMVl62YvM",
+      ["6449260356", "-4213276568"],
+      "hagiang6868",
+      "Giang2003@"
+    ),
+    startBot(
+      "17337651",
+      "7471858101:AAG8er5A7usX3CXgVQ_w9LcdOru3_Yn-ieo",
+      ["6449260356", "-4201625165"],
+      "dungbeo203",
+      "Dung0309@"
     ),
   ]);
 });
