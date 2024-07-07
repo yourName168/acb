@@ -8,7 +8,7 @@ class ACB {
             password
         };
         try {
-            const response = await axios.post('https://apiapp.acb.com.vn/mb/auth/tokens', data, {
+            const response = await axios.post('https://apiapp.acb.com.vn/mb/v2/auth/tokens', data, {
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8',
                     'Host': 'apiapp.acb.com.vn'
