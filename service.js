@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-const uri = "mongodb+srv://bincu100503:x6x46CrFKUVejKZX@cluster0.bdkejgi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://hieule1235:ovg7jmW1eixZdIXT@cluster0.csyi41q.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 class DatabaseService {
   constructor() {
@@ -16,10 +16,6 @@ class DatabaseService {
     } catch (error) {
       console.log('Try connect to MongoDB');
     }
-  }
-
-  get customerDB() {
-    return this.db.collection('user-password');
   }
 
   get transactionSent(){
