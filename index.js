@@ -232,7 +232,7 @@ const startBot = async (
         password
       );
       // bot.stopPolling();
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+      await new Promise((resolve) => setTimeout(resolve, 6000));
     } catch (error) {
       console.log("Error starting bot:", error);
     }
