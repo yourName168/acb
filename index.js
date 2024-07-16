@@ -145,7 +145,7 @@ const loginToACB = async (username, password) => {
 const fetchTransactions = async (numberAccount, username, password) => {
   try {
     const accessToken = await loginToACB(username, password);
-    const result = await acb.lsgd(numberAccount, 5, accessToken);
+    const result = await acb.lsgd(numberAccount,5, accessToken);
     return [result.data, accessToken];
   } catch (error) {
     console.log("Failed to retrieve transaction history:", error);
@@ -232,7 +232,7 @@ const startBot = async (
         password
       );
       // bot.stopPolling();
-      await new Promise((resolve) => setTimeout(resolve, 6000));
+      await new Promise((resolve) => setTimeout(resolve, 10000));
     } catch (error) {
       console.log("Error starting bot:", error);
     }
