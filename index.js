@@ -151,20 +151,6 @@ app.listen(port, async () => {
   console.log(`Server is running on port ${port}`);
   await Promise.all([
     startBot(
-      "7850491",
-      "6820544893:AAH1D8M58VyK6bVrJc28XQwcoVZTBn-FemI",
-      ["6449260356", "-4191168997"],
-      "meomeo1999",
-      "Thang@1999#"
-    ),
-    startBot(
-      "6559411",
-      "7137690710:AAF5w-cO_y9rtPUYcz9dBdLFdT_fMDcNzBc",
-      ["6449260356", "-4189985331"],
-      "bin7979",
-      "Lam@3979#"
-    ),
-    startBot(
       "40887567",
       "7484166601:AAHIRMO6YPYSRUMvfOtRk4Kmg_IMVl62YvM",
       ["6449260356", "-4213276568"],
